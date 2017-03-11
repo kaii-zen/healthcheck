@@ -31,7 +31,19 @@ func check_disk() {
                 fallthrough
             case u.UsedPercent > 80:
                 warn = true
-                output = append(output, fmt.Sprintf("%v: %.1f%%", p.Mountpoint, u.UsedPercent))
+
+                output = append(output,
+                                fmt.Sprintf("%v: %.1f%% (%.2f GiB Available/%.2f GiB Total)",
+                                            p.Mountpoint, u.UsedPercent, toGiB(u.Free), toGiB(u.Total)))
+            // Now same for inodes
+            case u.InodesUsedPercent > 90:
+                crit = true
+                fallthrough
+            case u.InodesUsedPercent > 80:
+                warn = true
+                output = append(output,
+                                fmt.Sprintf("%v (inodes): %.1f%% (%.2f GiB Available/%.2f GiB Total)",
+                                            p.Mountpoint, u.InodesUsedPercent, u.InodesFree, u.InodesTotal))
             }
         }
     }

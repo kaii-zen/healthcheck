@@ -37,3 +37,8 @@ func statusString(warn, crit bool) string {
         return "OK"
     }
 }
+
+// Convert bytes to Gibibytes so that things look pretty
+func toGiB(b uint64) float64 {
+    return float64(b)/1073741824
+}

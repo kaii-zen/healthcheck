@@ -3,7 +3,6 @@ package main
 import (
     "os"
     "fmt"
-    "math"
     "github.com/shirou/gopsutil/mem"
 )
 
@@ -22,11 +21,12 @@ func check_mem() {
         warn = true
     }
 
-    // Convert to GiB so that things look pretty
-    totalGiB := float64(v.Total)/math.Pow(1024, 3)
-    availableGiB := float64(v.Available)/math.Pow(1024, 3)
 
-    fmt.Printf("%s | Total: %.2f GiB | Available: %.2f GiB | Used: %.1f%%\n", statusString(warn, crit), totalGiB, availableGiB, v.UsedPercent)
+    fmt.Printf( "%s | Total: %.2f GiB | Available: %.2f GiB | Used: %.1f%%\n",
+                statusString(warn, crit),
+                toGiB(v.Total),
+                toGiB(v.Available),
+                v.UsedPercent )
 
     switch {
     case crit:
