@@ -4,4 +4,6 @@ I got annoyed that I had to carry Ruby on my back just to get simple cpu, memory
 
 This is also the first Go program I've ever written so cut me some slack :P
 
+## Installation
 
+Download binary from the release section (currently only linux/amd64 is available).
