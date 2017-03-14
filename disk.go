@@ -29,7 +29,7 @@ func checkDisk() {
 					p.Mountpoint, u.UsedPercent, toGiB(u.Free), toGiB(u.Total))))
 
 			resultz.Add(new(Result).Value(u.InodesUsedPercent).Crit(90).Warn(80).
-				Output(fmt.Sprintf("%v (inodes): %.1f%% (%.2f Available/%.2f Total)",
+				Output(fmt.Sprintf("%v (inodes): %.1f%% (%d Available/%d Total)",
 					p.Mountpoint, u.InodesUsedPercent, u.InodesFree, u.InodesTotal)))
 		}
 	}
