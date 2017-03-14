@@ -4,15 +4,18 @@ sudo: false
 go:
   - 1.8
 
+before_install: go get github.com/mitchellh/gox
+
 script:
   - go test
-  - go build
+  - gox -osarch="darwin/amd64 linux/386 linux/amd64 linux/arm freebsd/386 freebsd/amd64 openbsd/amd64 linux/arm64 linux/ppc64 linux/ppc64le"
 
 deploy:
   provider: releases
   api_key:
     secure: Mr8Mwh7+szUXSvV80vPCPQs/MB17NenuTR5FCheH8HBB5LKLke4ZVnosuehfi8nVtGeni5FtqEpp+Df4HGhWkEbXjcwf+W24AsYGencbyn1ambR65vHfrlkKKPUJLo9BYWJ9jAc6XLjSTTnRD9H/vOqW6cQV/Lu64Bns9m3l2l0eSqVsTdxn3yNWPOoVcF7mTJZD+5xmI+S7TL4SGglnmbmuO04vA7F/wstxkGF83qyUU9CD7h+Q5sMCzGEpNqKStoMNdxBQF/Hpxylo5K5dmu1SANVMhKD2PyUPMrhRIVbQ2b+yob8Ob+87WqEZaGeM/Snlk73BoBlO9MLcuBVK39HJ6YCLRKCjTJMc2zmcxqJ1bIUGTKTsnQaqkXoad3oojPmcNYinKJ+iVTlctVLwVHqTgArDu354yqB8pMoASs17ajcxGjkGgWwURNuOlgQHF4VieX0+LoBt8jzt3mgqcOtMdCdldRmDBofCauRO+7aUMWZ75YpQx2soJD1cAKPyrCWI/RlnU7iQX+p1jVbPYJC9JeA1Zb9HONowLzrGo226cov2afKV7Mu0oguhM+gWFYU7lLQd++ZSZgqG+ETAMvnBQE5uZzYSKDnjm4HjAcClK97DDtV5h6uBEGk7U5dMyTajzlogb0CPu8boQqMQQBmzFwCET0Ih9RKOQkBiR6Q=
-  file: healthcheck
+  file_glob: true
+  file: healthcheck*
   on:
     tags: true
     repo: kreisys/healthcheck

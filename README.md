@@ -6,4 +6,4 @@ This is also the first Go program I've ever written so cut me some slack :P
 
 ## Installation
 
-Download binary from the release section (currently only linux/amd64 is available).
+Download a binary from the release section.
