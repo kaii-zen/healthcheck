@@ -5,6 +5,7 @@ go:
   - 1.8
 
 script:
+  - go test
   - go build
 
 deploy:
