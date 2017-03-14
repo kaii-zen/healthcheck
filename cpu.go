@@ -8,7 +8,7 @@ import (
 	"github.com/shirou/gopsutil/cpu"
 )
 
-func check_cpu() {
+func checkCPU() {
 	v, err := cpu.Percent(time.Second, true)
 	if err != nil {
 		panic(err.Error())

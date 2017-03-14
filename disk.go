@@ -8,7 +8,7 @@ import (
 	"github.com/shirou/gopsutil/disk"
 )
 
-func check_disk() {
+func checkDisk() {
 	partitions, err := disk.Partitions(true)
 	if err != nil {
 		panic(err.Error())

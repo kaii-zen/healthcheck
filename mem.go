@@ -7,7 +7,7 @@ import (
 	"github.com/shirou/gopsutil/mem"
 )
 
-func check_mem() {
+func checkMem() {
 	v, err := mem.VirtualMemory()
 	if err != nil {
 		panic(err.Error())
