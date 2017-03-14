@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kreisys/healthcheck.svg?branch=master)](https://travis-ci.org/kreisys/healthcheck)
+[![Build Status](https://travis-ci.org/kreisys/healthcheck.svg?branch=master)](https://travis-ci.org/kreisys/healthcheck) [![GoDoc](https://godoc.org/github.com/kreisys/healthcheck?status.svg)](https://godoc.org/github.com/kreisys/healthcheck)
 # Healthcheck
 
 I got annoyed that I had to carry Ruby on my back just to get simple cpu, memory and disk checks for Consul nodes, so I wrote this tiny utility to fill in this particular gap.
